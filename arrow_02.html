@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrow</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+    
+    <script src="svg.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+    <script src="main.js"></script>
+    
+    <style>
+        *{
+            padding:0;
+            border:0;
+            margin: 0;
+        }
+        .box{
+            width:640px;
+            height: 480px;
+            outline: 1px solid #ccc;
+            background-image: url(hi.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:yellow;
+        }
+
+        .box_02{
+            width: 640px;
+            height: 480px;
+            outline: 1px solid #ccc;
+            margin:0 30px;
+        }
+
+        .wrap{
+            width: 1400px;
+            margin:30px auto;
+            display:flex;
+            }
+        
+        .area{ 
+            width: 640px;    
+            height:480px;
+            outline: 3px solid #f00;
+            position: relative;
+        }
+        
+        .border_style{
+            border:1px solid #333;
+        }
+
+        .alarm_frame{
+            padding:30px;
+        }
+
+        .word_space{
+            padding:7px;
+        }
+        .svg_frame{
+            position: absolute;
+            width:150px;
+            height: 150px;
+            /* outline: 1px solid #f00; */
+        }
+        .theSVG_1,.theSVG_2,.theSVG_3{
+            transform: rotate(-45deg);
+            width:160px;
+            height: 160px;
+            /* outline: 1px solid green; */
+            position: absolute;
+            top:10px;
+            right:0px;
+        }
+
+        .theSVG_4,.theSVG_5,.theSVG_6{
+            transform: rotate(45deg);
+            width:160px;
+            height: 160px;
+            /* outline: 1px solid green; */
+            position: absolute;
+            top:-30px;
+            right:0px;
+        }
+
+        /*SVG style*/
+        .st0{fill:none;stroke:#ffbb00;stroke-miterlimit:10; stroke-width: 2px;}
+        .st1{fill:#ffbb00;}
+        .st2{fill:#FFFFFF;}
+        .st3{font-family:'ArialMT';}
+        .st4{font-size:27.9325px;}
+        .st5{fill:#D1340F;}
+        .st7{fill:none;stroke:#9900ff;stroke-miterlimit:10; stroke-width: 2px;}
+        .st8{fill:#9900ff;}
+        /*SVG style*/
+        
+    </style>
+</head>
+<body>
+   
+    <div class="wrap">
+        <div class="box">
+            <div id="area" class="area">
+                <div class="svg_frame style_one" id="draggable_0" class="draggable ui-widget-content" class="draggable ui-widget-content">
+                    <svg id="theSVG_1" class="theSVG_1" data-name="theSVG_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.83 267.83" >
+                        
+                        <line class="st0" x1="38.04" y1="133.91" x2="161.89" y2="133.91"/>
+                        <line class="st0" x1="100" y1="0" x2="100" y2="267.83"/>
+                        <polygon class="st1" points="37.04,133.91 50.04,141.42 50.04,126.41 "/>
+                        <polygon class="st1" points="162.89,133.91 149.89,141.42 149.89,126.41 "/>
+                        <circle class="st5" cx="17.51" cy="133.91" r="15.47"/>
+                        <text transform="matrix(1 0 0 1 8.2012 142.4092)" class="st2 st3 st4">A</text>
+                        <circle class="st5" cx="182.42" cy="133.91" r="15.47"/>
+                        <text transform="matrix(1 0 0 1 173.1125 144.0779)" class="st2 st3 st4">B</text>
+                    </svg>
+                </div>
+                <div class="svg_frame style_one" id="draggable_1" class="draggable ui-widget-content" class="draggable ui-widget-content">
+                    <svg id="theSVG_2" class="theSVG_2" data-name="theSVG_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.83 267.83" >
+                        
+                    
+                            <line class="st0" x1="38.04" y1="133.91" x2="162.09" y2="133.91"/>
+                            <line class="st0" x1="100" y1="0" x2="100" y2="267.83"/>
+                            <polygon class="st1" points="163.54,134.01 150.54,141.51 150.54,126.51 "/>
+                            <circle class="st5" cx="17.54" cy="133.91" r="15.47"/>
+                            <text transform="matrix(1 0 0 1 8.2393 142.4092)" class="st2 st3 st4">A</text>
+                            <circle class="st5" cx="182.46" cy="133.91" r="15.47"/>
+                            <text transform="matrix(1 0 0 1 173.1506 144.0779)" class="st2 st3 st4">B</text>
+                    </svg>
+                </div>
+                <div class="svg_frame style_one" id="draggable_2" class="draggable ui-widget-content" class="draggable ui-widget-content">
+                    <svg id="theSVG_3" class="theSVG_3" data-name="theSVG_3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.83 267.83" >
+                        <line class="st0" x1="38.04" y1="133.91" x2="163.91" y2="133.91"/>
+                        <line class="st0" x1="100" y1="0" x2="100" y2="267.83"/>
+                        <polygon class="st1" points="37.36,133.91 50.36,141.42 50.36,126.41 "/>
+                        <circle class="st5" cx="17.52" cy="133.91" r="15.47"/>
+                        <text transform="matrix(1 0 0 1 8.2151 142.4092)" class="st2 st3 st4">A</text>
+                        <circle class="st5" cx="182.43" cy="133.91" r="15.47"/>
+                        <text transform="matrix(1 0 0 1 173.1264 144.0779)" class="st2 st3 st4">B</text>
+                    </svg>
+                </div>
+
+                <!-- SVG right -->
+                <div class="svg_frame style_two" id="draggable_4" class="draggable ui-widget-content" class="draggable ui-widget-content">
+                    <svg id="theSVG_5" class="theSVG_5" data-name="theSVG_5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.83 267.83" >
+                            <line class="st7" x1="38.04" y1="133.91" x2="162.09" y2="133.91"/>
+                            <line class="st7" x1="100" y1="0" x2="100" y2="267.83"/>
+                            <polygon class="st8" points="163.54,134.01 150.54,141.51 150.54,126.51 "/>
+                            <circle class="st5" cx="17.54" cy="133.91" r="15.47"/>
+                            <text transform="matrix(1 0 0 1 8.2393 142.4092)" class="st2 st3 st4">A</text>
+                            <circle class="st5" cx="182.46" cy="133.91" r="15.47"/>
+                            <text transform="matrix(1 0 0 1 173.1506 144.0779)" class="st2 st3 st4">B</text>
+                    </svg>
+                </div>
+                <div class="svg_frame style_two" id="draggable_3" class="draggable ui-widget-content" class="draggable ui-widget-content">
+                    <svg id="theSVG_4" class="theSVG_4" data-name="theSVG_4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.83 267.83" >
+                        <line class="st7" x1="38.04" y1="133.91" x2="161.89" y2="133.91"/>
+                        <line class="st7" x1="100" y1="0" x2="100" y2="267.83"/>
+                        <polygon class="st8" points="37.04,133.91 50.04,141.42 50.04,126.41 "/>
+                        <polygon class="st8" points="162.89,133.91 149.89,141.42 149.89,126.41 "/>
+                        <circle class="st5" cx="17.51" cy="133.91" r="15.47"/>
+                        <text transform="matrix(1 0 0 1 8.2012 142.4092)" class="st2 st3 st4">A</text>
+                        <circle class="st5" cx="182.42" cy="133.91" r="15.47"/>
+                        <text transform="matrix(1 0 0 1 173.1125 144.0779)" class="st2 st3 st4">B</text>
+                    </svg>
+                </div>
+                <div class="svg_frame style_two" id="draggable_5" class="draggable ui-widget-content" class="draggable ui-widget-content">
+                    <svg id="theSVG_6" class="theSVG_6" data-name="theSVG_6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.83 267.83" >
+                        <line class="st7" x1="38.04" y1="133.91" x2="163.91" y2="133.91"/>
+                        <line class="st7" x1="100" y1="0" x2="100" y2="267.83"/>
+                        <polygon class="st8" points="37.36,133.91 50.36,141.42 50.36,126.41 "/>
+                        <circle class="st5" cx="17.52" cy="133.91" r="15.47"/>
+                        <text transform="matrix(1 0 0 1 8.2151 142.4092)" class="st2 st3 st4">A</text>
+                        <circle class="st5" cx="182.43" cy="133.91" r="15.47"/>
+                        <text transform="matrix(1 0 0 1 173.1264 144.0779)" class="st2 st3 st4">B</text>
+                    </svg>
+                </div>
+        
+            </div>
+        
+        </div>
+        <div class="box_02">
+            <div class="alarm_frame">
+                <label for="style" size="4">Alarm Line</label>
+                <select name="style" id="styleSize" class="border_style" >
+                    <option value="0">請選擇線條樣式</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+                <br/><br/>
+                <label for="arrow" size="4"> Direction </label><span class="word_space"></span>
+                <select name="arrow" id="arrowStyle" class="border_style">
+                    <option value="3">請選擇箭頭樣式</option>
+                    <option value="4">A<->B</option>
+                    <option value="5">A ->B</option>
+                    <option value="6">A<- B</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
