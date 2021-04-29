@@ -1,0 +1,15 @@
+document.addEventListener("DOMContentLoaded",init);
+
+function init(){
+    screen_frame();
+}
+
+function screen_frame(){
+    $("#rect").draggable({
+        // accept:"#rect",
+        cursor:"move",
+        cursorAt: {top:200, right:200},
+        containment:"#wrap",
+        scroll:false
+    })
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>polygon</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+    <script src="polygon.js"></script>
+    
+    <style>
+        *{
+            padding:0;
+            border:0;
+            margin: 0;
+        }
+        .box{
+            width:640px;
+            height: 480px;
+            outline: 1px solid #ccc;
+            background-image: url(hi.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:yellow;
+        }
+
+        .box_02{
+            width: 640px;
+            height: 480px;
+            outline: 1px solid #ccc;
+            margin:0 30px;
+        }
+
+        .wrap{
+            width: 1400px;
+            margin:30px auto;
+            display:flex;
+            }
+        
+        .area{ 
+            width: 640px;    
+            height:480px;
+            outline: 3px solid #f00;
+            position: relative;
+        }
+        
+        .border_style{
+            border:1px solid #333;
+        }
+
+        .alarm_frame{
+            padding:30px;
+        }
+
+        .word_space{
+            padding:7px;
+        }
+        .svg_frame{
+            position: absolute;
+            width:150px;
+            height: 150px;
+            /* outline: 1px solid #f00; */
+        }
+        .theSVG_1,.theSVG_2,.theSVG_3{
+            transform: rotate(-45deg);
+            width:160px;
+            height: 160px;
+            /* outline: 1px solid green; */
+            position: absolute;
+            top:0px;
+            right:0px;
+        }
+
+        .theSVG_4,.theSVG_5,.theSVG_6{
+            transform: rotate(45deg);
+            width:160px;
+            height: 160px;
+            /* outline: 1px solid green; */
+            position: absolute;
+            top:0px;
+            right:0px;
+        }
+
+        .save input,#type_btn_0 input,#type_btn_1 input,#type_btn_2 input,#type_btn_3 input{
+            padding:10px 30px;
+            font-size: 24px;
+            cursor: pointer;
+            border:1px solid #666;
+            margin:10px;
+        }
+
+        .type_frame{
+            display:flex;
+        }
+        
+
+        /*SVG style*/
+        .st0{fill:none;stroke:#ffbb00;stroke-miterlimit:10; stroke-width: 2px;}
+        .st1{fill:#ffbb00;}
+        .st2{fill:#FFFFFF;}
+        .st3{font-family:'ArialMT';}
+        .st4{font-size:27.9325px;}
+        .st5{fill:#D1340F;}
+        .st7{fill:none;stroke:#9900ff;stroke-miterlimit:10; stroke-width: 2px;}
+        .st8{fill:#9900ff;}
+        /*SVG style*/
+
+       
+        
+    </style>
+</head>
+<body>
+   
+    <div class="wrap">
+        <div class="box" id="box">
+            <div id="area" class="area">
+                <div class="svg_frame style_one" id="draggable_0" class="draggable ui-widget-content" class="draggable ui-widget-content">
+                    <div id="rotate"></div>
+                    <svg id="theSVG" data-name="theSVG" xmlns="http://www.w3.org/2000/svg"  class="theSVG_0" width="640" height="480" viewBox="0 0 640 480">
+                        <!-- <polygon id="x" points="305.52 18 148.48 18 69.96 154 148.48 290 305.52 290 384.04 154 305.52 18"/> -->
+                    </svg>
+                   
+                </div> 
+
+                <div class="svg_frame style_one" id="draggable_0" class="draggable ui-widget-content" class="draggable ui-widget-content">
+                    <div id="rotate"></div>
+                     <svg id="shape" data-name="shape" xmlns="http://www.w3.org/2000/svg"  class="shape" width="640" height="480" viewBox="0 0 640 480">
+                        <!-- <polygon id="x" points="305.52 18 148.48 18 69.96 154 148.48 290 305.52 290 384.04 154 305.52 18"/> -->
+                    </svg>
+                   
+                </div> 
+                      
+            </div>
+        
+        </div>
+        <div class="box_02">
+           
+            <div class="save"><input type="button" value ="save" id="save_btn" onclick="saveBtn()"></div>
+            <div class="type_frame">
+                <div id="type_btn_0"><input type="button" value ="0" onclick="typeZero()"></div>
+                <div id="type_btn_1"><input type="button" value ="1" onclick="typeOne()"></div>
+                <div id="type_btn_2"><input type="button" value ="2" onclick="typeTwo()"></div>
+                <div id="type_btn_3"><input type="button" value ="3" onclick="typeThree()"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <style type="text/css" media="screen">
+        .handle {
+          position: absolute;
+          border: 0.1em solid yellow;
+          width: 1em;
+          height: 1em;
+          border-radius: 50%;
+        }
+
+        .theSVG_0{
+            stroke:yellow; 
+            stroke-width:2px;
+        }
+
+        .shape{
+            fill:#9900ff;
+            stroke: #D1340F;
+            stroke-width: 2px;
+        }
+      </style>
+      
+
+    <script type="text/javascript">
+       
+        </script>
+      </head><body>
+        <!-- <p>
+          (Offset to test)
+          <svg id="theSVG" width="500" height="500" style="border: 2px inset #CCC;">
+            <polygon id="x" points="200,200 100,100 100,1" fill="green" />
+           
+          </svg>
+        </p> -->
+        <script type="text/javascript">
+          draggablePolygon();
+          draggablePolygon_02();
+        </script>
+      
+     
+
+</body>
+</html>
