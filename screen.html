@@ -14,12 +14,13 @@
           border: 0.1em solid black;
           width: 1em;
           height: 1em;
+          border-radius: 50%;
         }
         #rect_small{
         stroke-width:2px;
         stroke:#f00;
-        width: 150px;
-        height: 150px;
+        width: 400px;
+        height: 400px;
         outline: 1px solid;
         position: absolute;
         top: 0;
@@ -27,13 +28,14 @@
         bottom: 0;
         left: 0;
         margin:auto;
-        opacity: 0;
+        opacity: 1;
         }
 
         .wrap{
             width: 1200px;
             height: 480;
             margin:auto;
+            display:flex;
         }
 
         .save_btn,.type_btn{
@@ -49,8 +51,7 @@
         }
 
         .box2{
-           margin:50px 30px;
-          display:flex;
+           margin:0 30px;
           }
 
           .type_btn{
@@ -59,40 +60,52 @@
 
           .screen{
               width: 640px;
-              height: 400px;
-              border-top: 1px solid #f00;
-              border-bottom: 1px solid #f00; 
-              position:absolute;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              left: 0;
-              margin:auto;
-               display:flex;
-              align-items: center;
-              justify-content: center;   
+              height: 480px;
+              /* border-top: 1px solid #f00;
+              border-bottom: 1px solid #f00;  */
+              position: relative;
+               
+              /* background-color:yellow;  */
           }
 
           
 
           .area{
-              position: relative;
+              position: relative;  
               width: 640px;
               height: 480px;
               outline: 1px solid #333;
           }
 
           .theSVG{
-              /* position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              margin:auto; */
-              border:1px solid #f00;
-              width:150px;
-              height:150px;
               cursor: pointer;
+              background-color:hotpink;
+              position:absolute;
+          }
+
+          #x{
+              width:500px;
+              height:500px;
+              fill-opacity: 0;
+              stroke: green;
+          }
+
+          #y{
+              fill-opacity:0;
+              stroke:#f00 ;
+          }
+
+          .screenSVG{
+              position: absolute;
+              
+          }
+
+          .smallScreen{
+              position: relative;
+          }
+
+          .theSVG_0{
+              position:absolute;
           }
 
       </style>
@@ -103,9 +116,19 @@
         
             <div class="area" id="area">
                 <div class="screen" id="screen">
-                    <svg id="theSVG" class="theSVG">
-                        <rect id="rect_small"/>
+                    
+                    <div class="smallScreen">
+                        <svg id="theSVG" data-name="theSVG" xmlns="http://www.w3.org/2000/svg"  class="theSVG_0" width="640" height="480">
+                            <!-- <rect id="rect_small"/> -->
+                        </svg>
+                    </div>
+                    
+
+                    <svg id="screenSVG" data-name="screenSVG" xmlns="http://www.w3.org/2000/svg"  class="screenSVG" width="640" height="480">
+                        <!-- <rect id="rect_small"/> -->
+                        
                     </svg>
+                   
                 </div>
                 
         </div>
@@ -124,6 +147,10 @@
                 <input type="button" value = "1" id="typeBtn_1" class="type_btn">
                 <input type="button" value = "2" id="typeBtn_2" class="type_btn">
                 <input type="button" value = "3" id="typeBtn_3" class="type_btn">
+                <input type="button" value = "4" id="typeBtn_4" class="type_btn">
+                <input type="button" value = "5" id="typeBtn_5" class="type_btn">
+                <input type="button" value = "6" id="typeBtn_6" class="type_btn">
+                
             </div>
             
         </div>
@@ -136,11 +163,7 @@
 
 
 
-    <script type="text/javascript">
-        $('#theSVG').resizable({
-        containment:"#screen",
-    });
-        </script>
+    
 
     
 </body>
