@@ -12,8 +12,8 @@
         .handle {
           position: absolute;
           border: 0.1em solid black;
-          width: 1em;
-          height: 1em;
+          width: 0.375em;
+          height: 0.375em;
           border-radius: 50%;
         }
         #rect_small{
@@ -44,9 +44,7 @@
         }
 
         .box{
-            
-            width: 640px;
-            height: 480px;
+            height: 500px;
            
         }
 
@@ -129,20 +127,11 @@
                 <div class="screen" id="screen">
                     
                     <div class="smallScreen">
-                        <svg id="theSVG" data-name="theSVG" xmlns="http://www.w3.org/2000/svg"  class="theSVG_0" width="640" height="480">
+                        <svg id="theSVG" data-name="theSVG" xmlns="http://www.w3.org/2000/svg"  class="theSVG_0" width="640" height="480" style="display: block;">
                             <!-- <rect id="rect_small"/> -->
                         </svg>
                     </div>
 
-                    <div class="mutilScreen">
-                        <svg id="theSVG_02" data-name="theSVG" xmlns="http://www.w3.org/2000/svg"  class="theSVG_0" width="640" height="480">
-                            <!-- <rect id="rect_small"/> -->
-                        </svg>
-                    </div>
-                    
-
-                   
-                   
                 </div>
                 
         </div>
@@ -160,7 +149,8 @@
                 <input type="button" value = "0" id="typeBtn_0" class="type_btn">
                 <input type="button" value = "1" id="typeBtn_1" class="type_btn">
                 <input type="button" value = "2" id="typeBtn_2" class="type_btn">
-                <input type="button" value = "3" id="typeBtn_3" class="type_btn">
+                <input type="button" value = "清除" id="typeBtn_3" class="type_btn" onclick="cleanBtn()">
+                <!-- <input type="button" value = "恢復" id="typeBtn_4" class="type_btn" onclick="reBtn()"> -->
                
                 
             </div>
