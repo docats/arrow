@@ -11,10 +11,12 @@
     <style type="text/css" media="screen">
         .handle {
           position: absolute;
-          border: 0.1em solid black;
+          /* border: 0.1em solid black; */
           width: 0.375em;
           height: 0.375em;
-          border-radius: 50%;
+          /* border-radius: 50%; */
+          
+         
         }
         #rect_small{
         stroke-width:2px;
@@ -44,7 +46,10 @@
         }
 
         .box{
-            height: 500px;
+            /* height: 500px; */
+            width:640px;
+            height:480px;
+            /* outline: hotpink 1px solid; */
            
         }
 
@@ -86,12 +91,12 @@
             transform-origin: center;
           }
 
-          #x{
+          /* #x{
               width:500px;
               height:500px;
               fill-opacity: 0;
               stroke: green;
-          }
+          } */
 
           #y{
               fill-opacity:0;
@@ -116,6 +121,38 @@
               left:0;
               top:0;
           }
+
+          .s{
+              /* width:640px;
+              height:480px; */
+              border:1px solid #f00; 
+              position:absolute;
+              top:0px;
+              left:0px;
+              right: 0;
+              bottom: 0;
+              margin: auto;
+              }
+
+              .handle::before{
+                content:'';
+                position: absolute;
+                top:-5px;
+                left:-6px;
+                border: 0.1em solid black;
+                width: 0.375em;
+                height: 0.375em;
+                border-radius: 50%;
+              }
+
+              
+
+              /*SVG style*/
+      
+        .st1{fill:#ffbb00;}
+        .st2{fill:#9900ff;}
+        
+        /*SVG style*/
 
       </style>
 </head>
@@ -146,10 +183,11 @@
             </div>
 
             <div id="type_frame" class="type_frame">
-                <input type="button" value = "0" id="typeBtn_0" class="type_btn">
-                <input type="button" value = "1" id="typeBtn_1" class="type_btn">
-                <input type="button" value = "2" id="typeBtn_2" class="type_btn">
+                <input type="button" value = "0" id="typeBtn_0" class="type_btn" onclick="typeZero()">
+                <input type="button" value = "1" id="typeBtn_1" class="type_btn" onclick="typeOne()">
+                <input type="button" value = "2" id="typeBtn_2" class="type_btn" onclick="typeTwo()">
                 <input type="button" value = "清除" id="typeBtn_3" class="type_btn" onclick="cleanBtn()">
+                <input type="button" value = "重整" id="typeBtn_4" class="type_btn" onclick="location.reload(true)">
                 <!-- <input type="button" value = "恢復" id="typeBtn_4" class="type_btn" onclick="reBtn()"> -->
                
                 
