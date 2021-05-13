@@ -12,9 +12,6 @@ function init(){
   
     SvgPolygon();
     
-    // MovePolygon();
-    
-
 //儲存按鈕
 var saveBtn = document.getElementById("save_btn");
 saveBtn.addEventListener("click",function(){
@@ -53,7 +50,6 @@ function SvgPolygon() {
     wrapPoint.setAttribute("class","s");
     screen.appendChild(wrapPoint);
     
-    
     for (var i = 0; i < points.numberOfItems; i++) {
       (function (i) { // close over variables for drag call back
         var point = points.getItem(i);
@@ -66,7 +62,6 @@ function SvgPolygon() {
         var base = svgRoot.position();
         
         var cs = window.getComputedStyle(handle, null);
-        
         
         // base.left -= (parseInt(cs.width) + parseInt(cs.borderLeftWidth) + parseInt(cs.borderRightWidth))/2; 
         // base.top -= (parseInt(cs.height) + parseInt(cs.borderTopWidth) + parseInt(cs.borderBottomWidth))/2; 
@@ -85,10 +80,8 @@ function SvgPolygon() {
               point.y = parseInt(handle.style.top);
               pointX_small[i] = point.x;
               pointY_small[i] = point.y;
-              
             }
             ,0);
-           
           }
         });
       }(i));
@@ -97,37 +90,15 @@ function SvgPolygon() {
     return 
   }
 
-  
-  
-  //清除所有物件
-  function cleanBtn(){
-    var theSVG = document.getElementById("theSVG");
-    var handle_a_0 = document.getElementById("handle_a_0");
-    var handle_a_1 = document.getElementById("handle_a_1");
-    var handle_a_2 = document.getElementById("handle_a_2");
-   
-    if(theSVG.style.display === "block"){
-      document.getElementById("theSVG").style.display = "none";
-      
-    for(let i=0;i<4;i++){
-      document.getElementById("handle_A_"+i).style.display = "none";
-     
-      }
-    } 
-  }
-
- 
-
   const shape_array = {
    polygon:[
      {
-       name:"set_0",
-      //  coord:[[350,190],[400,150],[200,450],[100,170]]
+      name:"set_0",
       coordX:[350,400,200,100],
       coordY:[190,150,450,170],
      },
      {
-      name:"set_1",
+     name:"set_1",
      coordX:[250,100,100,200],
      coordY:[90,150,50,170],
     },
@@ -139,28 +110,20 @@ function SvgPolygon() {
    ]
  }
 
-//  var shapeX_0 = [[shape_array.polygon[0].coordX[0]],[shape_array.polygon[0].coordX[1]],[shape_array.polygon[0].coordX[2]],[shape_array.polygon[0].coordX[3]]];
-//  var shapeY_0 = [[shape_array.polygon[0].coordY[0]],[shape_array.polygon[1].coordY[1]],[shape_array.polygon[2].coordY[2]]];
- 
-//  console.log("使用物件陣列取座標:"+ shapeX_0 +"  "+"使用物件陣列取座標:"+ shapeY_0);
-//  console.log("屬性:"+parseInt(shapeY_0));
- 
- 
-//按鈕0
-function typeZero(a,b){
+
+//接收滑鼠點擊事件
+document.addEventListener("click",onClickItem);
+
+function onClickItem(even) {
   var theSVG = document.getElementById("theSVG");
-  var typeBtn_0 = document.getElementById("typeBtn_0").value;
   var stroke_01 = theSVG.style.stroke = "#fff";
   var fill_01 = theSVG.style.fill = "#fff";
+  var stroke_02 = theSVG.style.stroke = "#fff";
+  var fill_02 = theSVG.style.fill = "#fff";
   var handle = document.getElementsByClassName("handle");
-  
-  // var handle1 = document.getElementsByClassName("handle")[0].style; 
-  // console.log("我是:"+handle1); 
-
-  // console.log("這到底是:"+handle);
-
-  if(typeBtn_0 == 0){
-    //把手座標，必須在陣列裡設按鈕0的把手預設值，才不會被前一個的把手設好的座標值影響這次要設定的座標
+  if(event.target.id.indexOf('typeBtn_0') == 0){
+      //按鈕0區域
+      //把手座標，必須在陣列裡設按鈕0的把手預設值，才不會被前一個的把手設好的座標值影響這次要設定的座標
   //  var x = [handle[0].style.left="350px",handle[1].style.left="400px",handle[2].style.left="200px",handle[3].style.left="100px"];
   // //  var y = [handle[0].style.top="190px",handle[1].style.top="150px",handle[2].style.top="450px",handle[3].style.top="170px"];
    var x = [handle[0].style.left=[shape_array.polygon[0].coordX[0]]+"px",handle[1].style.left=[shape_array.polygon[0].coordX[1]]+"px",handle[2].style.left=[shape_array.polygon[0].coordX[2]]+"px",handle[3].style.left=[shape_array.polygon[0].coordX[3]]+"px"];
@@ -173,27 +136,10 @@ function typeZero(a,b){
     console.log("value:"+ typeBtn_0);
     // console.log("使用物件陣列取座標:"+ shapeX+"  "+"使用物件陣列取座標:"+ shapeY);
     return 
-  }else{
-    console.log("1212");
-  }
- 
-   console.log("this is typeZero");
-   return  typeZero(2,3)
-  
-   
-}
 
-
-//按鈕1
- function typeOne(){
-  var typeBtn_1 = document.getElementById("typeBtn_1").value;
-    var color = document.getElementById("theSVG");
-    var stroke_01 = color.style.stroke = "#fff";
-    var fill_01 = color.style.fill = "#fff";
-    var handle = document.getElementsByClassName("handle")
-   
-   if(typeBtn_1 == 1){
-    //把手座標，必須在陣列裡設按鈕1的把手預設值，才不會被前一個的把手設好的座標值影響這次要設定的座標
+  }else if (event.target.id.indexOf('typeBtn_1') == 0){
+      //按鈕1
+     //把手座標，必須在陣列裡設按鈕1的把手預設值，才不會被前一個的把手設好的座標值影響這次要設定的座標
     var x = [handle[0].style.left=[shape_array.polygon[1].coordX[0]]+"px",handle[1].style.left=[shape_array.polygon[1].coordX[1]]+"px",handle[2].style.left=[shape_array.polygon[1].coordX[2]]+"px",handle[3].style.left=[shape_array.polygon[1].coordX[3]]+"px"];
     var y = [handle[0].style.top=[shape_array.polygon[1].coordY[0]]+"px",handle[1].style.top=[shape_array.polygon[1].coordY[1]]+"px",handle[2].style.top=[shape_array.polygon[1].coordY[2]]+"px",handle[3].style.top=[shape_array.polygon[1].coordY[3]]+"px"];
 
@@ -202,22 +148,11 @@ function typeZero(a,b){
     pointY_small = y;
 
    console.log("value:"+ typeBtn_1);
-   }
-    
-     console.log("this is typeOne");
- }
+    return
 
- //按鈕2
-function typeTwo(){
-  var typeBtn_2 = document.getElementById("typeBtn_2").value;
-  var theSVG = document.getElementById("theSVG");
-  var stroke_02 = theSVG.style.stroke = "#fff";
-  var fill_02 = theSVG.style.fill = "#fff";
-  var handle = document.getElementsByClassName("handle");
-
-  if(typeBtn_2 == 2){
-    console.log('value:'+typeBtn_2);
-     //把手座標，預設是loading的值(也就是全域變數預設的座標X和Y)，因故必須在陣列裡設按鈕2的把手預設值，才會不離開function被上面的把手設好的全域變數蓋過去
+  }else if (event.target.id.indexOf('typeBtn_2') == 0){
+      //按鈕2
+      //把手座標，預設是loading的值(也就是全域變數預設的座標X和Y)，因故必須在陣列裡設按鈕2的把手預設值，才會不離開function被上面的把手設好的全域變數蓋過去
     var x = [handle[0].style.left=[shape_array.polygon[2].coordX[0]]+"px",handle[1].style.left=[shape_array.polygon[2].coordX[1]]+"px",handle[2].style.left=[shape_array.polygon[2].coordX[2]]+"px",handle[3].style.left=[shape_array.polygon[2].coordX[3]]+"px"];
     var y = [handle[0].style.top=[shape_array.polygon[2].coordY[0]]+"px",handle[1].style.top=[shape_array.polygon[2].coordY[1]]+"px",handle[2].style.top=[shape_array.polygon[2].coordY[2]]+"px",handle[3].style.top=[shape_array.polygon[2].coordY[3]]+"px"];
    
@@ -227,40 +162,20 @@ function typeTwo(){
    
     console.log("涵式內的X:"+ pointX_small);
     console.log("涵式內的Y:"+ pointY_small);
-   
+    return
+
+  }else if (event.target.id.indexOf('typeBtn_3') == 0){
+    //清除畫面
+    if(theSVG.style.display === "block"){
+      document.getElementById("theSVG").style.display = "none";
+      
+    for(let i=0;i<4;i++){
+      document.getElementById("handle_A_"+i).style.display = "none";
+     
+      }
+    } 
+  }else if(event.target.id.indexOf('typeBtn_4') == 0){
+    //重整畫面
+    history.go(0)
   }
- 
-    console.log("this is typeTwo");
 }
-
-
-
-//座標嘗試
-// var hello = points_1();
-//     function points_1(){
-//         return [150,100,500,600];
-//   }
-//     points_1();
-//     // console.log("hello:"+ hello);
-
-// var start = points_2();
-//     function points_2(){
-//         return [60,150,300,400];
-//   }
-//     points_2();
-    // console.log("start:"+ start);
-
-// console.log(pointX_small[0],pointX_small[1],pointX_small[2],pointX_small[3]);
-
-//重整畫面
-function ReSet(){
-  history.go(0)
-}
-
-// var arrTag = returnArr();
-// function returnArr(){
-//   return [1,2,3];
-// }
-// console.log(arrTag);
-
-
