@@ -39,7 +39,8 @@ function SvgPolygon() {
     polygon.setAttribute("id","x");
     polygon.setAttribute("class","ui-draggable");
     theSVG.appendChild(polygon);
-    theSVG.style.fill="#fff";
+    theSVG.style.stroke = "#f00";
+    theSVG.style.fill="none";
 
     var points = polygon.points;
     var svgRoot = $(polygon).closest("svg");
@@ -96,10 +97,8 @@ document.addEventListener("click",onClickItem);
 
 function onClickItem(even) {
   var theSVG = document.getElementById("theSVG");
-  var stroke_01 = theSVG.style.stroke = "#fff";
-  var fill_01 = theSVG.style.fill = "#fff";
-  var stroke_02 = theSVG.style.stroke = "#fff";
-  var fill_02 = theSVG.style.fill = "#fff";
+  var stroke_01 = theSVG.style.stroke = "#f00";
+  var fill_01 = theSVG.style.fill = "none";
   var handle = document.getElementsByClassName("handle");
 
   //此為座標
@@ -120,21 +119,22 @@ function onClickItem(even) {
 
   var length = shape_array.length
 
-  // for(var a=0; a<length; a++){
-  //   var b = shape_array[a];
-  //   console.log(b);
-  // }
-
+  for(var a=0; a<length; a++){
+   console.log("次數:"+a);
+   console.log("測試:"+parseInt(shape_array[a]));
+  }
+  
+ 
   if(event.target.id.indexOf('typeBtn_0') == 0){
       //按鈕0區域
       //把手座標，必須在陣列裡設按鈕0的把手預設值，才不會被前一個的把手設好的座標值影響這次要設定的座標
-  //  var x = [handle[0].style.left="350px",handle[1].style.left="400px",handle[2].style.left="200px",handle[3].style.left="100px"];
-  // //  var y = [handle[0].style.top="190px",handle[1].style.top="150px",handle[2].style.top="450px",handle[3].style.top="170px"];
 
   for(var i=0; i<4 ; i++ ){
-    
+   
    var x = [handle[i].style.left=[shape_array[0].coordX[i]]+"px"];
    var y = [handle[i].style.top=[shape_array[0].coordY[i]]+"px"];
+  
+  
      //把取出來的座標放到pointX_small和pointY_small
      pointX_small[i] = x;
      pointY_small[i] = y;
@@ -193,4 +193,7 @@ function onClickItem(even) {
     //重整畫面
     history.go(0)
   }
+  
 }
+
+
